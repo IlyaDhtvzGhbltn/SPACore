@@ -1,0 +1,38 @@
+﻿h1{
+    font-size: 18px
+}
+h2 {
+    font-size: 14px
+}
+p, span, button, h1, h2 {
+    font-family: monospace;
+}
+.orders {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-container {
+    display: flex;
+    flex-direction: row;
+}
+.manage-container {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+
+.manage-pad {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-field-container {
+    max-width: 300px;
+    flex-direction: row;
+    display: flex;
+}
+.new-order-field-container {
+    margin-left: auto;
+    margin-right: 10px;
+}
