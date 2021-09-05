@@ -42,6 +42,7 @@ namespace SPA_Test.Controllers
         {
             int count = _orders.Count();
             order.Id = count + 1;
+            order.Date = DateTime.UtcNow;
             _orders.Add(order);
             return Ok(order);
         }
@@ -55,7 +56,7 @@ namespace SPA_Test.Controllers
             var updatedOrder = _orders.First(x => x.Id == orderId);
             updatedOrder.Company = order.Company;
             updatedOrder.Customer = order.Customer;
-            updatedOrder.Date = order.Date;
+            updatedOrder.Date = DateTime.UtcNow;
             updatedOrder.Email = order.Email;
             updatedOrder.Minister = order.Minister;
             return Ok(updatedOrder);

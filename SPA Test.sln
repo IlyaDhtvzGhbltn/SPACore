@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.Contracts", "Contracts\Orders.Contracts\Orders.Contracts.csproj", "{578E1279-47BC-4038-B362-491FC59B10E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient", "WebClient\WebClient.csproj", "{4A413CFA-5536-4C4D-B011-B2CE30EB0A26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPA", "WebClient\SPA.csproj", "{4A413CFA-5536-4C4D-B011-B2CE30EB0A26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

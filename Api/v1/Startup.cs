@@ -59,7 +59,14 @@ namespace SPA_Test
                     await context.Response.WriteAsync(model.ConvertToJson(), System.Text.Encoding.UTF8);
                 });
             });
-            
+
+#if DEBUG
+            app.UseCors(builder =>
+                builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        );
+#endif
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
