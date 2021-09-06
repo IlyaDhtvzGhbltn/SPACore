@@ -1,0 +1,20 @@
+<ul *ngIf="orders.length >0; else emptyOrdersList">
+  <li *ngFor="let order of orders">
+    <div class="order-item-container">
+      <div class="order-info-container">
+        <p>Company : {{order.company}} </p>
+        <p>Customer name : {{order.customer}}</p>
+        <p>Date : {{order.date}}</p>
+        <p>Minister : {{order.minister}}</p>
+      </div>
+      <div class="order-manage-container">
+        <button>Edit</button>
+        <button (click)="this.onRemove(order.id)">Delete</button>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<ng-template #emptyOrdersList>
+  <span>No orders yet</span>
+</ng-template>

@@ -25,7 +25,7 @@ namespace Orders.Api.v1.Filters.Orders
 
                 if (string.IsNullOrWhiteSpace(castedOrder.Company))
                     exceptions.Add(new FormatException("Company Name can't be empty"));
-                if (string.IsNullOrWhiteSpace(castedOrder.Customer.Name))
+                if (string.IsNullOrWhiteSpace(castedOrder.Customer))
                     exceptions.Add(new FormatException("Customer Name can't be empty"));
                 if (string.IsNullOrWhiteSpace(castedOrder.Minister))
                     exceptions.Add(new FormatException("Minister Name can't be empty"));
