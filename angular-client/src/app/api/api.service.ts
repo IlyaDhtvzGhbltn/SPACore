@@ -28,4 +28,12 @@ export class ApiService{
     this.httpclient.post(this.API, json, options)
       .subscribe(responce => this.newOrderAddedEvent.emit(responce))
   }
+
+  editOrder(order: Order){
+    const url = `${this.API}/${order.id}`
+    const options = { headers: this.Headers }
+    order.date = new Date().toJSON()
+    const json = JSON.stringify(order)
+    return this.httpclient.put(url, json, options)
+  }
 }

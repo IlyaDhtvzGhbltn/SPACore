@@ -2,13 +2,32 @@
   <li *ngFor="let order of orders">
     <div class="order-item-container">
       <div class="order-info-container">
-        <p>Company : {{order.company}} </p>
-        <p>Customer name : {{order.customer}}</p>
-        <p>Date : {{order.date}}</p>
-        <p>Minister : {{order.minister}}</p>
+        <div class="property-container">
+          <p></p>
+          <span>Company : </span>
+          <span *ngIf="order.edit != true">{{order.company}}</span>
+          <input *ngIf="order.edit == true" type="text" [(ngModel)]="order.company">
+        </div>
+        <div class="property-container">
+          <p></p>
+          <span>Customer : </span>
+          <span *ngIf="order.edit != true">{{order.customer}}</span>
+          <input *ngIf="order.edit == true" type="text" [(ngModel)]="order.customer">
+        </div>
+        <div class="property-container">
+          <p></p>
+          <span>Date : {{order.date}}</span>
+        </div>
+        <div class="property-container">
+          <p></p>
+          <span>Minister :</span>
+          <span *ngIf="order.edit != true">{{order.minister}}</span>
+          <input *ngIf="order.edit == true" type="text" [(ngModel)]="order.minister">
+        </div>
       </div>
       <div class="order-manage-container">
-        <button>Edit</button>
+        <button *ngIf="order.edit == false" (click)="order.edit = true">Edit</button>
+        <button *ngIf="order.edit == true" (click)="onEdit(order)">Save</button>
         <button (click)="this.onRemove(order.id)">Delete</button>
       </div>
     </div>

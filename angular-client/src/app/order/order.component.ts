@@ -8,6 +8,7 @@ export interface Order{
   minister: string
   date: string
   email: string
+  edit : boolean
 }
 
 @Component({
@@ -24,9 +25,14 @@ export class OrderComponent implements  OnInit{
     this.api.getOrders()
       .subscribe(data=>
       {
+        data.forEach(x => x.edit = false)
         this.orders = data
         this.api.newOrderAddedEvent
-          .subscribe(order => this.orders.push(order) )
+          .subscribe(order =>
+          {
+            order.edit = false;
+            this.orders.push(order)
+          } )
       });
   }
 
@@ -35,7 +41,14 @@ export class OrderComponent implements  OnInit{
       .subscribe(() => this.orders = this.orders.filter(x => x.id !== id));
   }
 
-  onAdd(){
-
+  onEdit(order: Order){
+    this.api.editOrder(order)
+      .subscribe(resp => {
+        this.orders.forEach(x => {
+          if(x.id == order.id){
+            x.edit = false
+          }
+        })
+      })
   }
 }
