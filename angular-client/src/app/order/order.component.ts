@@ -18,14 +18,24 @@ export interface Order{
 export class OrderComponent implements  OnInit{
   constructor(private api: ApiService) {
   }
+
   public orders: Order[] = [];
   ngOnInit(){
     this.api.getOrders()
-      .subscribe(data=> this.orders = data);
+      .subscribe(data=>
+      {
+        this.orders = data
+        this.api.newOrderAddedEvent
+          .subscribe(order => this.orders.push(order) )
+      });
   }
 
   onRemove(id: number){
     this.api.deleteOrder(id)
       .subscribe(() => this.orders = this.orders.filter(x => x.id !== id));
+  }
+
+  onAdd(){
+
   }
 }

@@ -1,13 +1,13 @@
 import {Order, OrderComponent} from "src/app/order/order.component"
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Injectable} from "@angular/core";
+import {Observable, Subject} from "rxjs";
+import {EventEmitter, Injectable, Output} from "@angular/core";
 
 @Injectable({providedIn:'root' })
 export class ApiService{
   private API = 'https://localhost:44336/api/v1/orders'
   private Headers = new HttpHeaders({'Content-Type': 'application/json'})
-
+  @Output() newOrderAddedEvent = new EventEmitter()
 
   constructor(private httpclient: HttpClient) {
   }
@@ -26,8 +26,6 @@ export class ApiService{
     const options = { headers: this.Headers }
     const json = JSON.stringify(order)
     this.httpclient.post(this.API, json, options)
-      .subscribe(resp => {
-        console.log(resp)
-      })
+      .subscribe(responce => this.newOrderAddedEvent.emit(responce))
   }
 }

@@ -15,6 +15,7 @@ export class FormComponent implements OnInit{
   ngOnInit() {
   }
 
+
   public order: Order = { id:0, email: '', company: '', minister: '', customer:'', date:''}
   onAdd(){
     this.api.addOrder(this.order)
