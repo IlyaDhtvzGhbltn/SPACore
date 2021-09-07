@@ -14,7 +14,7 @@ export interface Order{
 @Component({
   selector: 'order-items',
   templateUrl: 'order.component.html',
-  styleUrls: ['order.component.css']
+  styleUrls: ['order.component.css', '../app.component.css']
 })
 export class OrderComponent implements  OnInit{
   constructor(private api: ApiService) {

@@ -5,7 +5,7 @@ import {ApiService} from "../api/api.service";
 @Component({
   selector: 'new-order-form',
   templateUrl: 'form.component.html',
-  styleUrls: ['form.component.css']
+  styleUrls: ['form.component.css', '../app.component.css']
 })
 
 export class FormComponent implements OnInit{
